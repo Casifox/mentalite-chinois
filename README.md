@@ -1,1 +1,0 @@
-# mentalite-chinois
