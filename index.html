@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentalité Chinoise | L'Art du Détachement Absolu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #ff0000;
+            --surface: #0a0a0a;
+            --border: #1a1a1a;
+            --text-main: #e5e5e5;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: #333; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        .glass-nav {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .section-card:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+
+        .divider-red {
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(to right, #111 1px, transparent 1px),
+                              linear-gradient(to bottom, #111 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .scanline {
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.05), transparent);
+            position: absolute;
+            animation: scanline 8s linear infinite;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="flex flex-col lg:flex-row min-h-screen bg-grid">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <nav class="hidden lg:flex flex-col w-80 h-screen sticky top-0 bg-[#080808] p-10 border-r border-neutral-900 z-50">
+        <div class="mb-12">
+            <div class="w-16 h-16 mb-6 flex items-center justify-center border-2 border-red-600 rounded-sm">
+                <span class="text-red-600 font-black text-2xl">MC</span>
+            </div>
+            <h1 class="text-xl font-black uppercase tracking-tighter leading-none">
+                MENTALITÉ<br><span class="text-red-600">CHINOISE</span>
+            </h1>
+            <p class="text-[9px] mono text-neutral-600 mt-2 uppercase tracking-[0.3em]">Shanghai Edition • v3.0</p>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto space-y-8 no-scrollbar">
+            <div>
+                <p class="text-[10px] text-neutral-700 font-bold tracking-widest uppercase mb-4">01. PHILOSOPHIE</p>
+                <ul class="space-y-2 text-[11px] font-bold text-neutral-500 uppercase">
+                    <li><a href="#intro" class="hover:text-white transition">La Voie du 'Ballek'</a></li>
+                    <li><a href="#origines" class="hover:text-white transition">Origines de la Voie</a></li>
+                    <li><a href="#indifference" class="hover:text-white transition">Indifférence vs Apathie</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-[10px] text-neutral-700 font-bold tracking-widest uppercase mb-4">02. LE SPECTRE SOCIAL</p>
+                <ul class="space-y-2 text-[11px] font-bold text-neutral-500 uppercase">
+                    <li><a href="#realite-brutale" class="hover:text-white transition">La Réalité Brutale</a></li>
+                    <li><a href="#exercices" class="hover:text-white transition">Exercices de Détachement</a></li>
+                    <li><a href="#parasites" class="hover:text-white transition">Cercle des Parasites</a></li>
+                    <li><a href="#invisibilite" class="hover:text-white transition">L'Art de l'Invisibilité</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-[10px] text-neutral-700 font-bold tracking-widest uppercase mb-4">03. STRATÉGIE</p>
+                <ul class="space-y-2 text-[11px] font-bold text-neutral-500 uppercase">
+                    <li><a href="#success" class="hover:text-white transition">Mathématique du Succès</a></li>
+                    <li><a href="#predateur" class="hover:text-white transition">État d'Esprit Prédateur</a></li>
+                    <li><a href="#loi-non-besoin" class="hover:text-white transition">Loi du Non-Besoin</a></li>
+                    <li><a href="#echec" class="hover:text-white transition">Gestion de l'Échec</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-[10px] text-neutral-700 font-bold tracking-widest uppercase mb-4">04. STOÏCISME</p>
+                <ul class="space-y-2 text-[11px] font-bold text-neutral-500 uppercase">
+                    <li><a href="#guerrier" class="hover:text-white transition">Le Guerrier Immuable</a></li>
+                    <li><a href="#reactions" class="hover:text-white transition">Tableau des Réactions</a></li>
+                    <li><a href="#citadelle" class="hover:text-white transition">La Citadelle Intérieure</a></li>
+                    <li><a href="#silence" class="hover:text-white transition">Le Silence comme Arme</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-[10px] text-neutral-700 font-bold tracking-widest uppercase mb-4">05. ÉNERGIE & ACTION</p>
+                <ul class="space-y-2 text-[11px] font-bold text-neutral-500 uppercase">
+                    <li><a href="#action-pure" class="hover:text-white transition">Méthode en 4 Étapes</a></li>
+                    <li><a href="#sommeil" class="hover:text-white transition">Le Sommeil du Guerrier</a></li>
+                    <li><a href="#nutrition" class="hover:text-white transition">Nutrition & Clarté</a></li>
+                    <li><a href="#defi-21" class="hover:text-white transition">Défi des 21 Jours</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-neutral-900 mt-auto">
+            <div class="flex items-center space-x-3 text-[10px] text-neutral-600 uppercase font-black">
+                <div class="w-2 h-2 bg-red-600 animate-pulse"></div>
+                <span>Sync. Shanghai Active</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 relative overflow-hidden">
+        <div class="scanline"></div>
+        
+        <!-- HERO -->
+        <section id="intro" class="h-screen flex flex-col justify-center px-6 lg:px-24 bg-black relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,0,0,0.1),_transparent_70%)]"></div>
+            <div class="relative z-10" data-aos="fade-up" data-aos-duration="1500">
+                <span class="mono text-red-600 text-xs tracking-[1em] uppercase mb-6 block font-bold animate-pulse">Édition Ultime • Shanghai</span>
+                <h1 class="text-6xl lg:text-[10rem] font-black uppercase tracking-tighter leading-[0.8] mb-8">
+                    L'ART DU <br><span class="text-red-600">DÉTACHEMENT</span>
+                </h1>
+                <p class="text-lg lg:text-3xl text-neutral-500 max-w-3xl font-light border-l-4 border-red-600 pl-10 mb-12 italic">
+                    "Ne sois pas une feuille au vent, sois le roc qui brise la tempête."
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#realite-brutale" class="bg-red-600 text-white px-10 py-5 font-black uppercase text-[11px] tracking-widest hover:bg-white hover:text-black transition-all duration-500 shadow-[0_0_20px_rgba(255,0,0,0.4)]">
+                        Ouvrir le Manuel
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1.1 ORIGINES -->
+        <section id="origines" class="py-32 px-6 lg:px-24 border-t border-neutral-900" data-aos="fade-up">
+            <div class="max-w-5xl">
+                <div class="flex items-center space-x-6 mb-12">
+                    <span class="text-6xl font-black text-red-600 mono opacity-20">01.1</span>
+                    <h2 class="text-5xl font-black uppercase tracking-tighter">Origines de la Voie</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 text-neutral-400 leading-relaxed text-lg">
+                    <p>La "Mentalité Chinoise" n'est pas une origine ethnique, c'est une structure de pensée issue des stratégies de survie et de domination les plus froides. C'est l'adaptation du stoïcisme antique au chaos du monde moderne.</p>
+                    <p>Elle est née du besoin de rester lucide là où tout le monde panique. C’est le refus de laisser l’émotion dicter l’action.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.1 RÉALITÉ BRUTALE -->
+        <section id="realite-brutale" class="py-32 px-6 lg:px-24 bg-[#080808]" data-aos="fade-right">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-20">
+                    <h2 class="text-5xl font-black uppercase tracking-tighter mb-4">La Réalité Brutale</h2>
+                    <div class="divider-red w-48"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="section-card p-12 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 mono text-red-900 text-6xl font-black opacity-10">01</div>
+                        <h4 class="font-black uppercase text-xl mb-6 text-red-600">Personne n'en a rien à foutre</h4>
+                        <p class="text-neutral-500 leading-relaxed">Le monde est indifférent à tes peines. Tes excuses n'intéressent personne. La seule chose qui laisse une trace, c'est le résultat.</p>
+                    </div>
+                    <div class="section-card p-12 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 mono text-red-900 text-6xl font-black opacity-10">02</div>
+                        <h4 class="font-black uppercase text-xl mb-6 text-red-600">La faiblesse attire les prédateurs</h4>
+                        <p class="text-neutral-500 leading-relaxed">Dès que tu montres une faille émotionnelle, le système et les gens autour de toi commencent à te consommer. Deviens illisible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.1 MATHÉMATIQUE DU SUCCÈS -->
+        <section id="success" class="py-32 px-6 lg:px-24 border-y border-neutral-900" data-aos="zoom-in">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-5xl font-black uppercase mb-12 tracking-tighter">La Mathématique du Succès</h2>
+                <div class="p-16 bg-neutral-900 border-2 border-red-600 inline-block rotate-1 shadow-2xl">
+                    <p class="text-3xl md:text-5xl font-black italic tracking-widest text-white">
+                        TRAVAIL × DÉTACHEMENT = <span class="text-red-600">PUISSANCE</span>
+                    </p>
+                </div>
+                <p class="mt-16 text-neutral-500 text-lg leading-relaxed max-w-2xl mx-auto">
+                    Le travail sans détachement mène au burn-out. Le détachement sans travail mène à la pauvreté. La combinaison des deux te rend immuable.
+                </p>
+            </div>
+        </section>
+
+        <!-- TABLEAU DES RÉACTIONS (FULL VERSION) -->
+        <section id="reactions" class="py-32 px-6 lg:px-24 bg-white text-black" data-aos="fade-up">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-6xl font-black uppercase mb-20 tracking-tighter">Guide de Réponse Immuable</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs font-bold uppercase tracking-widest">
+                        <thead>
+                            <tr class="border-b-4 border-black">
+                                <th class="py-8 px-4">ÉVÉNEMENT</th>
+                                <th class="py-8 px-4 text-neutral-400">RÉACTION HUMAINE</th>
+                                <th class="py-8 px-4 text-red-600">RÉPONSE CHINOISE</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-neutral-200">
+                            <tr class="hover:bg-neutral-50 transition">
+                                <td class="py-10 px-4">Rupture amoureuse</td>
+                                <td class="py-10 px-4 text-neutral-400 font-normal italic">Supplication, nostalgie, perte de focus</td>
+                                <td class="py-10 px-4 font-black">Acceptation glaciale. Focus Travail augmenté.</td>
+                            </tr>
+                            <tr class="hover:bg-neutral-50 transition">
+                                <td class="py-10 px-4">Trahison d'un proche</td>
+                                <td class="py-10 px-4 text-neutral-400 font-normal italic">Cris, haine, vengeance émotionnelle</td>
+                                <td class="py-10 px-4 font-black">Effacement définitif de la personne. Silence.</td>
+                            </tr>
+                            <tr class="hover:bg-neutral-50 transition">
+                                <td class="py-10 px-4">Gain de 100k€ imprévu</td>
+                                <td class="py-10 px-4 text-neutral-400 font-normal italic">Euphorie, achat de luxe, frime</td>
+                                <td class="py-10 px-4 font-black">Neutralité. Réinvestissement immédiat. Discrétion.</td>
+                            </tr>
+                            <tr class="hover:bg-neutral-50 transition">
+                                <td class="py-10 px-4">Échec total d'un projet</td>
+                                <td class="py-10 px-4 text-neutral-400 font-normal italic">Dépression, abandon, recherche de coupables</td>
+                                <td class="py-10 px-4 font-black">Analyse mathématique. Reboot en 24h.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4.4 LE SILENCE COMME ARME & SERMENT -->
+        <section id="silence" class="py-40 px-6 lg:px-24 bg-black relative" data-aos="fade-in">
+            <div class="max-w-4xl mx-auto text-center border-2 border-red-600 p-16 relative">
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-black px-6 text-red-600 font-black tracking-widest uppercase">
+                    Le Serment du Silence
+                </div>
+                <h2 class="text-4xl font-black uppercase mb-12">"Le guerrier ne parle pas de ses projets, il les réalise."</h2>
+                <div class="space-y-6 text-neutral-500 text-lg">
+                    <p>Ne justifie jamais tes actes. Tes paroles sont des fuites d'énergie. Chaque fois que tu expliques tes raisons à quelqu'un, tu perds une partie de ta puissance.</p>
+                    <p class="font-black text-white italic">Règle d'Or : Le succès fait assez de bruit, inutile d'y ajouter ta voix.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. MAÎTRISE DE L'ÉNERGIE -->
+        <section id="sommeil" class="py-32 px-6 lg:px-24 bg-[#050505]" data-aos="fade-left">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center space-x-4 mb-20">
+                    <span class="text-red-600 font-black text-3xl">06.</span>
+                    <h2 class="text-5xl font-black uppercase tracking-tighter">Maîtrise de l'Énergie</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="p-10 bg-neutral-900/50 border border-neutral-800">
+                        <h4 class="font-black uppercase text-red-600 mb-6">Le Sommeil du Guerrier</h4>
+                        <ul class="space-y-4 text-sm text-neutral-400">
+                            <li class="flex items-center"><span class="w-1 h-1 bg-red-600 mr-3"></span> Cycles de 90 min (dormir 6h ou 7h30).</li>
+                            <li class="flex items-center"><span class="w-1 h-1 bg-red-600 mr-3"></span> Déconnexion totale 1h avant le lit.</li>
+                            <li class="flex items-center"><span class="w-1 h-1 bg-red-600 mr-3"></span> Planification du lendemain écrite à la main.</li>
+                        </ul>
+                    </div>
+                    <div class="p-10 bg-neutral-900/50 border border-neutral-800" id="nutrition">
+                        <h4 class="font-black uppercase text-red-600 mb-6">Nutrition & Focus</h4>
+                        <ul class="space-y-4 text-sm text-neutral-400">
+                            <li class="flex items-center"><span class="w-1 h-1 bg-red-600 mr-3"></span> Élimination totale du sucre raffiné.</li>
+                            <li class="flex items-center"><span class="w-1 h-1 bg-red-600 mr-3"></span> Jeûne intermittent (16/8) pour la clarté.</li>
+                            <li class="flex items-center"><span class="w-1 h-1 bg-red-600 mr-3"></span> Hydratation : 3L d'eau par jour minimum.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LE DÉFI DES 21 JOURS -->
+        <section id="defi-21" class="py-40 px-6 lg:px-24 bg-red-600 text-white overflow-hidden relative">
+            <div class="absolute -right-20 -bottom-20 text-[20rem] font-black opacity-10">21</div>
+            <div class="max-w-6xl mx-auto relative z-10">
+                <h2 class="text-7xl font-black uppercase mb-16 tracking-tighter">Le Défi des 21 Jours</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <h4 class="text-3xl font-black uppercase border-b-2 border-white pb-4">Jours 1-7</h4>
+                        <p class="font-bold opacity-90">Nettoyage social et digital. Pas de plaintes. Pas de justifications. Suppression des distractions cat. C.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-3xl font-black uppercase border-b-2 border-white pb-4">Jours 8-14</h4>
+                        <p class="font-bold opacity-90">Discipline de fer. Réveil 05:30. Micro-audaces quotidiennes. Travail profond (4h/jour sans phone).</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-3xl font-black uppercase border-b-2 border-white pb-4">Jours 15-21</h4>
+                        <p class="font-bold opacity-90">Souveraineté. Test de l'indifférence en public. Prise de décision radicale sans avis externe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCLUSION : DEVENIR LE MUR -->
+        <section class="py-60 px-6 text-center bg-black relative">
+             <div class="relative z-10 max-w-4xl mx-auto" data-aos="zoom-out">
+                 <h2 class="text-8xl md:text-[14rem] font-black uppercase tracking-tighter leading-none mb-10 text-glow">IMMUABLE</h2>
+                 <p class="text-2xl text-red-600 mono font-bold uppercase tracking-[0.4em] mb-12">Shanghai Private Edition</p>
+                 <p class="text-neutral-500 text-lg md:text-2xl max-w-2xl mx-auto italic leading-relaxed mb-20">
+                     "Ils te diront que tu es froid. Souris intérieurement. Leur critique est leur jalousie. Tu as la paix intérieure absolue."
+                 </p>
+             </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-24 px-6 border-t border-neutral-900 bg-[#020202] text-center">
+            <div class="flex justify-center space-x-12 opacity-30 text-[10px] mono uppercase font-bold mb-8">
+                <span>Shanghai HQ</span>
+                <span>•</span>
+                <span>System 3.0.1</span>
+                <span>•</span>
+                <span>Confidential</span>
+            </div>
+            <p class="text-[9px] text-neutral-800 mono uppercase tracking-widest">Deviens le mur. Sois le roc. Rien ne t'atteint.</p>
+        </footer>
+
+    </main>
+
+    <!-- MOBILE NAVIGATION (TAB BAR) -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 glass-nav border-t border-neutral-900 h-16 z-[100] flex justify-around items-center px-4">
+        <a href="#intro" class="text-red-600 font-black text-[9px] uppercase">Home</a>
+        <a href="#realite-brutale" class="text-neutral-500 font-black text-[9px] uppercase">Réalité</a>
+        <a href="#reactions" class="text-neutral-500 font-black text-[9px] uppercase">Réponses</a>
+        <a href="#sommeil" class="text-neutral-500 font-black text-[9px] uppercase">Énergie</a>
+        <a href="#defi-21" class="text-neutral-500 font-black text-[9px] uppercase">21J</a>
+    </div>
+
+    <!-- AOS Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+    </script>
+
+</body>
+</html>
